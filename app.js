@@ -1,6 +1,10 @@
+require('@babel/register');
 const express = require('express');
 const expressConfig = require('./config/express');
 const mainRouter = require('./routes/main.routes');
+const registration = require('./routes/registration.routes');
+const login = require('./routes/login.routes');
+const question = require('./routes/question.routes');
 
 const app = express();
 
@@ -8,7 +12,10 @@ const app = express();
 expressConfig(app);
 
 // подключаем роутеры
-app.use(mainRouter); // роутер главной страницы
+app.use(mainRouter);  // роутер главной страницы
+app.use('/registration', registration);
+app.use('/login', login);
+app.use('/questions', question);
 // app.use('/todo', todoRouter); // роутер списка задач (все url начинаются с /todo)
 
 app.use((error, req, res, next) => {

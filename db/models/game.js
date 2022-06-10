@@ -3,13 +3,14 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Usertheme extends Model {
-    static associate({ User, Theme }) {
-      Usertheme.belongsTo(User, { foreignKey: 'user_id' });
-      Usertheme.belongsTo(Theme, { foreignKey: 'theme_id' });
+  class Game extends Model {
+    static associate({ User, Theme, Card }) {
+      Game.Users = Game.belongsTo(User, { foreignKey: 'user_id' });
+      Game.Themes = Game.belongsTo(Theme, { foreignKey: 'theme_id' });
+      // Game.Cards = Game.belongsTo(Card, { foreignKey: 'theme_id' });
     }
   }
-  Usertheme.init({
+  Game.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -32,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
         key: 'id',
       },
     },
+    score: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,
@@ -42,8 +47,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'Usertheme',
-    tableName: 'Userthemes',
+    modelName: 'Game',
+    tableName: 'Games',
   });
-  return Usertheme;
+  return Game;
 };

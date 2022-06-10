@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(document.querySelector('form'));
   document.querySelector('.theme-list').addEventListener('click', async (event) => {
     event.preventDefault();
     if (event.target.classList.contains('theme')) {
@@ -28,13 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       const html = await answer.text();
       document.querySelector('.container').innerHTML = html;
+      console.log(document.querySelector('#answer-form'));
     }
   });
-  // document.querySelector('#answer-form')
-  //   .addEventListener('submit', async (event) => {
-  //     event.preventDefault();
-  //     console.log('submit');
-  //   });
+  document.querySelector('#answer-form')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault();
+      console.log('submit');
+    });
 });
 
 

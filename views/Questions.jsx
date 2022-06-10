@@ -1,17 +1,19 @@
 const React = require('react');
 const Layout = require('./Layout');
+const Card = require('./Card');
 
-module.exports = function ThemeOne({ arrQuestion }) {
+function Questions({ question }) {
   return (
-    <Layout>
-      <div className="container">
-        <h1>Question 1</h1>
-        <ul>
-          {arrQuestion ? arrQuestion.map((el) => <li>{el}</li>) : <li>Pusto</li>}
-        </ul>
+    <div>
+      <h1>Отвечай на вопрос</h1>
+
+      <div className="tasks list-group">
+          <Card question={question} />
       </div>
 
-    </Layout>
+      {/* <script src="/script.js" /> */}
+    </div>
   );
-};
- 
+}
+
+module.exports = Questions;

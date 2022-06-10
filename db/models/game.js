@@ -4,9 +4,10 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
-    static associate({ User, Theme }) {
-      Game.belongsTo(User, { foreignKey: 'user_id' });
-      Game.belongsTo(Theme, { foreignKey: 'theme_id' });
+    static associate({ User, Theme, Card }) {
+      Game.Users = Game.belongsTo(User, { foreignKey: 'user_id' });
+      Game.Themes = Game.belongsTo(Theme, { foreignKey: 'theme_id' });
+      // Game.Cards = Game.belongsTo(Card, { foreignKey: 'theme_id' });
     }
   }
   Game.init({

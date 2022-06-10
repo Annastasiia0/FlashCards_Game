@@ -24,10 +24,10 @@ module.exports = {
           model: 'Themes',
           key: 'id',
         },
-        score: {
-          allowNull: false,
-          type: DataTypes.INTEGER,
-        },
+      },
+      score: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
       },
       createdAt: {
         allowNull: false,

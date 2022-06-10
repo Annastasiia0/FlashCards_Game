@@ -3,13 +3,13 @@ const {
 } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Usertheme extends Model {
+  class Game extends Model {
     static associate({ User, Theme }) {
-      Usertheme.belongsTo(User, { foreignKey: 'user_id' });
-      Usertheme.belongsTo(Theme, { foreignKey: 'theme_id' });
+      Game.belongsTo(User, { foreignKey: 'user_id' });
+      Game.belongsTo(Theme, { foreignKey: 'theme_id' });
     }
   }
-  Usertheme.init({
+  Game.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -31,6 +31,9 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Themes',
         key: 'id',
       },
+      score: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
     },
     createdAt: {
       allowNull: false,
@@ -42,8 +45,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'Usertheme',
-    tableName: 'Userthemes',
+    modelName: 'Game',
+    tableName: 'Games',
   });
-  return Usertheme;
+  return Game;
 };

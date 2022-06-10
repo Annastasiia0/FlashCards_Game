@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = {
   async up(queryInterface) {
-    await queryInterface.createTable('Userthemes', {
+    await queryInterface.createTable('Games', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -24,6 +24,10 @@ module.exports = {
           model: 'Themes',
           key: 'id',
         },
+        score: {
+          allowNull: false,
+          type: DataTypes.INTEGER,
+        },
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Userthemes');
+    await queryInterface.dropTable('Games');
   },
 };

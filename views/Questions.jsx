@@ -11,7 +11,7 @@ function Questions({ question }) {
           <Card question={question} />
       </div>
 
-      <script src="/script.js" />
+      {/* <script src="/script.js" /> */}
     </div>
   );
 }

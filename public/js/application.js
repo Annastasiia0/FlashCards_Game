@@ -26,15 +26,16 @@ document.addEventListener('DOMContentLoaded', () => {
         },
       });
       const html = await answer.text();
+      console.log(html);
       document.querySelector('.container').innerHTML = html;
       console.log(document.querySelector('#answer-form'));
     }
   });
-  document.querySelector('#answer-form')
-    .addEventListener('submit', async (event) => {
-      event.preventDefault();
-      console.log('submit');
-    });
+  // document.querySelector('#answer-form')
+  //   .addEventListener('submit', async (event) => {
+  //     event.preventDefault();
+  //     console.log('submit');
+  //   });
 });
 
 
